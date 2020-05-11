@@ -6,8 +6,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import dao.OracleXEConnection;
-import vo.board_QA_VO;
+import com.exam.dto.board_QA_VO;
+
+
 
 /*
 
