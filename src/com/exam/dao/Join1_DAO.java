@@ -377,7 +377,7 @@ public class Join1_DAO {
 		}
 
 
-		public UserDTO selectById(Connection conn,String id) {
+		public UserDTO selectById(String id) {
 			sb.setLength(0);
 			sb.append("select * from member ");
 			sb.append("where memberid = ? ");

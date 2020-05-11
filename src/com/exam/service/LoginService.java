@@ -4,7 +4,7 @@ import java.sql.Connection;
 
 import com.exam.connection.MakeConnection;
 import com.exam.dao.Join1_DAO;
-import com.exam.dto.MemberDTO;
+import com.exam.dto.Join1_VO;
 import com.exam.dto.UserDTO;
 
 public class LoginService {
@@ -12,12 +12,12 @@ public class LoginService {
 
 	public UserDTO login(String id, String password) {
 		try {
-			Connection conn = MakeConnection.getInstance();
-			Join1_VO vo = dao.
+			MakeConnection conn = MakeConnection.getInstance();
+			UserDTO vo = dao.selectById(id);
 
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
-		return 미정;
+		return null;
 	}
 }
