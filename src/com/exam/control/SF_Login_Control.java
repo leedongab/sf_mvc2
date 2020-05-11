@@ -15,31 +15,36 @@ import com.exam.handler.LoginHandler;
 
 @WebServlet("/SF_Login_Control.do")
 public class SF_Login_Control extends HttpServlet{
-	private static final String FORM_VIEW = "/WEB-INF/view/loginsafetyLogin.jsp";
 
 @Override
 protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+	doProcess(req, resp); //doProcess 메소드 실행 LoginHandler 에서 get으로 리턴한거 뷰페이지로
 }
 @Override
 protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-	String viewPage = null;
-	Action model = new LoginHandler();
-
+	doProcess(req, resp);//doProcess 메소드 실행  LoginHandler 에서 post 리턴한 뷰페이지로
+}
+private void doProcess(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 	req.setCharacterEncoding("UTF-8");
-	resp.setContentType("text/html; charset=UTF-8");
+	resp.setContentType("text/html;charset=UTF-8");
+
+	Action model = new LoginHandler(); //일단 login핸들러로 가자.
+	String viewPage = null;//핸들러에서 get/post로 리턴해준다.
 
 	try {
-		viewPage = model.process(req, resp);
-
-		RequestDispatcher rd = req.getRequestDispatcher(viewPage);
-		rd.forward(req, resp);
-
-	} catch (SQLException | ServletException e) {
+		viewPage = model.process(req, resp); //핸들러에있는 process다
+	} catch (SQLException e) {
 		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	RequestDispatcher rd = req.getRequestDispatcher(viewPage);
+
+	try {
+		rd.forward(req, resp);
+	} catch (ServletException e) {
 		e.printStackTrace();
 	}
 
 
-	}
+}
 }

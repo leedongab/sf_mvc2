@@ -4,9 +4,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Date;
 
 import com.exam.dto.Join1_VO;
+import com.exam.dto.UserDTO;
 
 
 
@@ -104,7 +107,7 @@ public class Join1_DAO {
 
 	}// joinCheck end
 
-	// 議댁옱�븯�뒗 �쉶�썝�씤吏� �뿬遺�瑜� �솗�씤�븯�뒗 硫붿냼�뱶 - (id,email)
+
 	public boolean isExist(String id, String email) {
 		sb.setLength(0);
 		sb.append("select * from ORDINARY_PEOPLE ");
@@ -373,5 +376,34 @@ public class Join1_DAO {
 			return pw;
 		}
 
+
+		public UserDTO selectById(Connection conn,String id) {
+			sb.setLength(0);
+			sb.append("select * from member ");
+			sb.append("where memberid = ? ");
+
+			UserDTO member = null;
+
+			try {
+				pstmt = conn.prepareStatement(sb.toString());
+				pstmt.setString(1, id);
+
+				rs = pstmt.executeQuery();
+
+				rs.next();
+
+				member = new UserDTO(rs.getString(1),rs.getString(2),rs.getString(3),toDate(rs.getTimestamp(4)));
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+			return member;
+		}// selectById() end
+
+
+		private Date toDate(Timestamp date) {
+			return date == null?null : new Date(date.getTime());
+		}
 
 }
