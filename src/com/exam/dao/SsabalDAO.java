@@ -7,9 +7,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import dao.OracleXEConnection;
+import com.exam.dto.SsabalVO;
 
-import vo.SsabalVO;
 
 
 

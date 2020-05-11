@@ -6,9 +6,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import dao.OracleXEConnection;
-import vo.Join1_VO;
-import vo.Join2_VO;
+import com.exam.dto.Join2_VO;
+
+
 
 public class Join2_DAO {
 	StringBuffer sb = new StringBuffer();

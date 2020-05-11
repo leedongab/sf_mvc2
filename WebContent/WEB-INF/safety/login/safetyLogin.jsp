@@ -54,7 +54,7 @@ $(function() {
 	 </div>
 
 	  <div>
-		<form action="safetyLogin_OK.jsp"  method="get" name="frm" id="frm">
+		<form action="SF_Login_Control.do"  method="POST" name="frm" id="frm">
 			<input type="text" name="id" id="id" placeholder="아이디" autofocus="autofocus" style="padding-left: 10px;" required  > <br />
 			<input type="password" name="pw"id="pw" placeholder="패스워드"  style="padding-left: 10px;" required>
 

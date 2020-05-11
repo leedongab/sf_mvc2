@@ -6,10 +6,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import com.exam.dto.DNVO;
 import com.sun.net.httpserver.Authenticator.Result;
 
-import dao.OracleXEConnection;
-import vo.DNVO;
+
 
 
 public class DNDAO {

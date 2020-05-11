@@ -6,54 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>cam1.jsp</title>
-<%
-	String no = request.getParameter("bno");		//삭제 기능 수행 해야하므로 위에 올리기
 
-	CampaignDAO dao = new CampaignDAO();
-	CampaignVO vo = new CampaignVO();
-
-	 if(no!=null){
-		int bno = Integer.parseInt(no);
-
-			vo = dao.getData(bno);
-		}else{
-			response.sendRedirect("campaign.jsp");	//DB터지면 최초 화면으로 돌려놓\기
-		}
- %>
-
- <%
-
-	String cp = request.getParameter("cp");
-
-	int currentPage = 0;
-
-	if(cp!=null){
-		currentPage = Integer.parseInt(cp);
-	}else {
-		currentPage = 1;
-	}
-
-
-	int totalCount = dao.getTotalCount();
-
-
-	int recordByPage = 5;
-
-	// 총 페이지 수
-	int totalPage =
-		(totalCount%recordByPage==0)?totalCount/recordByPage:totalCount/recordByPage+1;
-
-
-
-
-
-	int startNo = (currentPage-1)*recordByPage+1;
-
-
- 	int endNo = currentPage*recordByPage;
-
-
-%>
 <style type="text/css">
 	.btn1 {
 		margin-right: 10px;

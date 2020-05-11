@@ -6,9 +6,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import dao.OracleXEConnection;
+import com.exam.dto.Join1_VO;
 
-import vo.Join1_VO;
+
 
 public class Join1_DAO {
 	StringBuffer sb = new StringBuffer();
@@ -235,7 +235,7 @@ public class Join1_DAO {
 			}
 			return vo;
 		}// getAllData() end
-		
+
 		public boolean isExist_findID(String name, String hp) {
 			sb.setLength(0);
 			sb.append("select * from ORDINARY_PEOPLE ");
@@ -249,15 +249,15 @@ public class Join1_DAO {
 				pstmt.setString(2, hp);
 				rs = pstmt.executeQuery();
 
-				isOk = rs.next(); // 
-									// 
+				isOk = rs.next(); //
+									//
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			return isOk;
 		}// isExit() end
-		
+
 		public boolean isExist_findID_email(String name, String email) {
 			sb.setLength(0);
 			sb.append("select * from ORDINARY_PEOPLE ");
@@ -279,7 +279,7 @@ public class Join1_DAO {
 			}
 			return isOk;
 		}// isExit() end
-		
+
 		public String getUser_ID(String name,String hp) {
 			sb.setLength(0);
 			sb.append("select OP_ID from ORDINARY_PEOPLE ");
@@ -294,7 +294,7 @@ public class Join1_DAO {
 				pstmt.setString(2, hp);
 
 				rs = pstmt.executeQuery();
-				
+
 				String pw = rs.getString(3);
 				String date = rs.getString(4);
 				String email = rs.getString(5);
@@ -347,7 +347,7 @@ public class Join1_DAO {
 			}
 			return list;
 		}
-		
+
 		public String pwCheck(String userID) {
 			int rst = 0;
 			sb.setLength(0);
@@ -357,10 +357,10 @@ public class Join1_DAO {
 			try {
 				pstmt = conn.prepareStatement(sb.toString());
 				pstmt.setString(1, userID);
-			
+
 				rs = pstmt.executeQuery();
 				rs.next();
-				
+
 				pw = rs.getString("OP_PW");
 
 			} catch (SQLException e) {
@@ -372,6 +372,6 @@ public class Join1_DAO {
 
 			return pw;
 		}
-		
+
 
 }
