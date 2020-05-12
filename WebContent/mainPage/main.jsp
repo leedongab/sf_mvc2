@@ -81,8 +81,8 @@
 </style>
 </head>
 <body>
-	<jsp:include page="../etc/dona.jsp" />
-	<jsp:include page="../etc/sf_nav.jsp" />
+	<jsp:include page="../WEB-INF/safety/etc/dona.jsp" />
+	<jsp:include page="../WEB-INF/safety/etc/sf_nav.jsp" />
 	<div>
 		<div class="slick-items">
 			<div class="slider_div_sub1">
@@ -138,7 +138,7 @@
 <jsp:include page="property/sf_supporter.jsp" />
 <jsp:include page="property/sf_ci.jsp" />
 <jsp:include page="property/sf_ServiceCenter.jsp" />
-<jsp:include page="../etc/project_footer.jsp" />
+<jsp:include page="../WEB-INF/safety/etc/project_footer.jsp" />
 
 
 

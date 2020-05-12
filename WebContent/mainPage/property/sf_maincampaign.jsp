@@ -1,6 +1,7 @@
-<%@page import="vo.CampaignVO"%>
-<%@page import="dao.CampaignDAO"%>
 
+
+<%@page import="com.exam.dto.CampaignVO"%>
+<%@page import="com.exam.dao.CampaignDAO"%>
 <%@page import="java.util.ArrayList"%>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
